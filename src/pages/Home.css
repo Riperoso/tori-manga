@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(77, 77, 255);
+  color: aliceblue;
+}
+
+header h1 {
+  padding: 10px;
+}
+
+.buttonHeader {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonHeader button {
+  margin: .5rem;
+  padding: 1rem;
+  border-radius: .2rem;
+}
+
+.mangaContainer {
+  display: flex;
+  flex-wrap: wrap;
+};
