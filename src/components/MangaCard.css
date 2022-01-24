@@ -1,0 +1,26 @@
+.mangaCard {
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  /* background-color: red; */
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.mangaCard img {
+  
+  width: 8rem;
+  border-radius: 10px;
+}
+
+.mangaCard h3 {
+  /* color: aqua; */
+}
+
+.mangaInfo {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
