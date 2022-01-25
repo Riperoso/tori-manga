@@ -4,22 +4,23 @@ import Home from '../pages/Home';
 
 afterEach(() => jest.clearAllMocks());
 
-test('fetch mangá', async () => {
-  const manga = {
-    id: 1,
-    name: 'BNHA',
-    rate: 8.76,
-    volume: 45,
-  };
+it('fetch mangá', async () => {
+  const manga = { top: [{
+    id: 2,
+    title: 'SNK',
+    rank: 2,
+    score: 7.87,
+    volumes: 70,
+  }] };
+
+  global.fetch = jest.fn(() => Promise.resolve({
+    json: () => Promise.resolve(manga),
+  }));
 
   render(<Home />);
 
-  jest.spyOn(global, 'fetch');
-  global.fetch.mockResolverValue({
-    json: jest.fn().mockResolvedValue(manga),
-  });
-  const renderedManga = await screen.findByText('BNHA');
+  const renderedManga = await screen.findByText('SNK');
   expect(renderedManga).toBeInTheDocument();
   expect(global.fetch).toBeCalledTimes(1);
-  expect(global.fetch).toBeCalledWith('https://api.jikan.moe/v3/top/manga/1/bypopularity', { headers: { Aaccept: 'application/json' } });
+  expect(global.fetch).toBeCalledWith('https://api.jikan.moe/v3/top/manga/1/bypopularity');
 });
