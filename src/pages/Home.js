@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MangaCard from '../components/MangaCard';
 import './Home.css';
 
@@ -27,15 +28,16 @@ function Home() {
         {
           isLoading ? <h1>Loading</h1>
             : mangaState && mangaState.map((manga, index) => (
-              <MangaCard
-                key={ index }
-                url={ manga.image_url }
-                id={ manga.mal_id }
-                title={ manga.title }
-                rank={ manga.rank }
-                score={ manga.score }
-                volumes={ manga.volumes }
-              />
+              <Link to={ `/manga/${manga.mal_id}` } key={ index }>
+                <MangaCard
+                  url={ manga.image_url }
+                  id={ manga.mal_id }
+                  title={ manga.title }
+                  rank={ manga.rank }
+                  score={ manga.score }
+                  volumes={ manga.volumes }
+                />
+              </Link>
             ))
         }
       </div>
